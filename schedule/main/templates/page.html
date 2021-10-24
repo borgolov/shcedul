@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>расписание</title>
+    <link href="{% static 'bootstrap-5.0.1-dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="{% static 'bootstrap-5.0.1-dist/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/clock.js' %}"></script>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body class="container-fluid">
+    <header class="row">
+        <h1 id="titl">{{title}}</h1>
+        <p id="clock">Javascript Clock</p>
+    </header>
+    <main class="row">
+        <table class="table table-bordered" style="width: 98%; margin: 0 auto;">
+            <thead>
+                <tr style="text-align: center;">
+                    <th scope="col">каб.</th>
+                    <th scope="col">ФИО</th>
+                    <th scope="col">должность</th>
+                    <th scope="col">пн</th>
+                    <th scope="col">вт</th>
+                    <th scope="col">ср</th>
+                    <th scope="col">чт</th>
+                    <th scope="col">пт</th>
+                    <th scope="col">сб</th>
+                    <th scope="col">вс</th>
+                    <th scope="col">вид очереди</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in main %}
+                <tr>
+                    <th scope="row" colspan="11" style="text-align: center;">{{item.category}}</th>
+                </tr>
+                    {% for i in item.schedules %}
+                <tr>
+                    <th scope="row">{{i.room}}</th>
+                    <td>{{i.doctor}}</td>
+                    <td>{{i.doctor.profile}}</td>
+                        {% if i.is_holiday %}
+                    <th colspan="8" style="text-align: center;">Отпуск, обращаяйтесь в регистратуру</th>
+                        {% else %}
+                    <th>{{i.monday}}</th>
+                    <th>{{i.tuesday}}</th>
+                    <th>{{i.wednesday}}</th>
+                    <th>{{i.thursday}}</th>
+                    <th>{{i.friday}}</th>
+                    <th>{{i.saturday}}</th>
+                    <th>{{i.sunday}}</th>
+                    <th>{{i.schedule_type}}</th>
+                        {% endif %}
+                </tr>
+                    {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <footer class="row"></footer>
+</body>
+
+</html>
