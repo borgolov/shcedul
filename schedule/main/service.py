@@ -24,15 +24,24 @@ def screen_schedule(request):
     lista = get_profiles_in_schedules(screen)
     schema = list()
     for item in lista:
-        item_js = {"category": item.name, "schedules": []}
+        item_js = {"profile_type": item.name, "rows": []}
         for i in get_schedules(screen):
             if i.doctor.profile.category == item:
                 sc = {
-                    'doctor': i.doctor.family + " " + i.doctor.name + " " + i.doctor.middle,
+                    'doc': i.doctor.family + " " + i.doctor.name + " " + i.doctor.middle,
                     'room': i.room,
-                    'monday': i.monday
+                    'profile': i.doctor.profile.name,
+                    'monday': i.monday,
+                    'tuesday': i.tuesday,
+                    'wednesday': i.wednesday,
+                    'thursday': i.thursday,
+                    'friday': i.friday,
+                    'saturday': i.saturday,
+                    'sunday': i.sunday,
+                    'is_holiday': i.is_holiday,
+                    'type': i.schedule_type.name,
                 }
-                item_js['schedules'].append(i)
+                item_js['rows'].append(sc)
         schema.append(item_js)
     return schema, screen.title
 
