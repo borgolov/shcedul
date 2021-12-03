@@ -1,0 +1,27 @@
+version: "3"
+
+volumes:
+  base_schedule:
+    external: true
+
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - base_schedule:/usr/src/app/base
+
+  nginx:
+    build:
+      context: ./docker/nginx
+      dockerfile: Dockerfile
+    depends_on:
+      - web
+    ports:
+      - "80:80"
+    volumes:
+      - ./static/:/static
+
