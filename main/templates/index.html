@@ -14,7 +14,7 @@
 
 <body class="container-fluid">
     <header class="row">
-        <h1 id="titl">{{title}}</h1><br>
+        <h1 id="titl">{{title}}</h1>
         <p id="clock">Javascript Clock</p>
     </header>
     <main class="row">
@@ -31,14 +31,14 @@
                         <th scope="col">чт</th>
                         <th scope="col">пт</th>
                         <th scope="col">сб</th>
-                        <th scope="col">вс</th>
+                        <!--<th scope="col">вс</th>-->
                         <th scope="col">вид очереди</th>
                     </tr>
                 </thead>
                 <tbody>
                     <template v-for="prof in schedule">
                             <tr> 
-                                <td colspan="11" style="text-align: center;">{% verbatim %}{{prof.profile_type}}{% endverbatim %}</td>
+                                <td colspan="11" style="text-align: center;"><strong>{% verbatim %}{{prof.profile_type}}{% endverbatim %}</strong></td>
                             </tr>
                             <tr v-for="item in prof.rows" :key="item.id">
                                 <template v-if="!item.is_holiday">
@@ -51,14 +51,14 @@
                                     <td>{% verbatim %}{{item.thursday}}{% endverbatim %}</td>
                                     <td>{% verbatim %}{{item.friday}}{% endverbatim %}</td>
                                     <td>{% verbatim %}{{item.saturday}}{% endverbatim %}</td>
-                                    <td>{% verbatim %}{{item.sunday}}{% endverbatim %}</td>
+                                    <!--<td>{% verbatim %}{{item.sunday}}{% endverbatim %}</td>-->
                                     <td>{% verbatim %}{{item.type}}{% endverbatim %}</td>
                                 </template>
                     <template v-else>
                                     <td>{% verbatim %}{{item.room}}{% endverbatim %}</td>
                                     <td>{% verbatim %}{{item.doc}}{% endverbatim %}</td>
                                     <td>{% verbatim %}{{item.profile}}{% endverbatim %}</td>
-                                    <td colspan="7" style="text-align: center;">Отпуск, обращайтесь в регистратуру</td>
+                                    <td colspan="6" style="text-align: center;">Отпуск, обращайтесь в регистратуру</td>
                                     <td>{% verbatim %}{{item.type}}{% endverbatim %}</td>
                                 </template>
                     </tr>
