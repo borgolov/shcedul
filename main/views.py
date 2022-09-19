@@ -12,7 +12,7 @@ def index(request):
     scr_id = request.GET.get('screen_id')
     if scr_id:
         screen = get_screen(scr_id)
-        return render(request, 'index.html', {'title': screen.title})
+        return render(request, 'index_old.html', {'title': screen.title})
     else:
         return render(request, 'selector.html',
                       {'title': 'ОГБУЗ "Иркутская городская клиническая больница №3"', 'list': Screen.objects.all()})

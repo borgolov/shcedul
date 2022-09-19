@@ -38,7 +38,7 @@
                 <tbody>
                     <template v-for="prof in schedule">
                             <tr> 
-                                <td colspan="11" style="text-align: center;"><strong>{% verbatim %}{{prof.profile_type}}{% endverbatim %}</strong></td>
+                                <td colspan="10" style="text-align: center;"><strong>{% verbatim %}{{prof.profile_type}}{% endverbatim %}</strong></td>
                             </tr>
                             <tr v-for="item in prof.rows" :key="item.id">
                                 <template v-if="!item.is_holiday">

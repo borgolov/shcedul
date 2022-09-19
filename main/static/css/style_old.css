@@ -1,0 +1,201 @@
+html {
+	background-size: 100%;
+	height: 100%;
+	width: 100%;
+}
+
+/* line 9, ../sass/def_style.scss */
+body {
+	position: relative;
+	overflow: hidden;
+	font-family: PTSerifRegular, Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	color: #ebf4fd;
+	height: 100%;
+	width: 100%;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	background-image: url(/static/img/sky.jpg);
+}
+
+body:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, .7);
+}
+
+table {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+@font-face {
+  font-family: 'PTSerifRegular';
+  src: url("../fonts/PTSerifRegular.eot");
+  src: url("../fonts/PTSerifRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/PTSerifRegular.woff") format("woff"), url("../fonts/PTSerifRegular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PTSerifBold';
+  src: url("../fonts/PTSerifBold.eot");
+  src: url("../fonts/PTSerifBold.eot?#iefix") format("embedded-opentype"), url("../fonts/PTSerifBold.woff") format("woff"), url("../fonts/PTSerifBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.bjs-component-app-container .bjs-component-filter {
+	padding-left: .7em;
+	padding-right: 21em;
+	padding-top: .4em;
+	padding-bottom: .4em;
+	line-height: .9em;
+	font-size: 1.5vw;
+	font-weight: bold;
+	position: relative;
+}
+
+.bjs-component-app-container .bjs-component-clock {
+  position: relative;
+  float: right;
+  padding-top: .1em;
+  padding-right: .4em;
+  padding-bottom: .4em;
+  line-height: .9em;
+  font-size: 2vw;
+  font-weight: bold;
+}
+.bjs-component-app-container .bjs-component-clock  ul {
+  margin:0 auto;
+  padding:0px;
+  list-style:none;
+  text-align:right;
+}
+
+.bjs-component-app-container .bjs-component-clock ul li {
+  display:inline;
+  text-align:center;
+  text-shadow:0 0 0;
+}
+.bjs-component-app-container .bjs-component-clock .date{
+}
+
+.bjs-component-app-container .bjs-component-clock .time{
+	}
+
+.bjs-component-app-container .bjs-component-tables-wrapper {
+	clear: both;
+	position: relative;
+}
+.bjs-component-app-container .bjs-component-tables-wrapper .header{
+	font-family: PTSerifBold;
+	font-weight: bold;
+	text-align:center;
+	font-size: 1.5vw;
+}
+
+
+.bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table {
+	position: relative;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	width: 100%;
+	padding-left: .25em;
+	padding-right: .25em;
+}
+
+.bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table {
+	border-collapse: separate;
+	border-spacing: .18em;
+	width: 100%;
+}
+
+.bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table.fix-widths {
+	table-layout: fixed;
+}
+
+.bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table th, .bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table td {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	line-height: 1em;
+	height: 50px;
+	padding-right: 7px;
+	padding-left: 7px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	font-family: PTSerifBold;
+
+}
+
+
+.bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table tbody th.cell, .bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table tbody td.cell{
+	background-color: #e1f3fa;
+}
+.bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table tbody tr:nth-child(2n) th,.bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table tbody tr:nth-child(2n) td {
+	background-color:rgba(235, 249, 255, 0.7)
+}
+
+.bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table tbody tr:last-child td {
+  background-image: url(../img/big_btn_footer_bg.png);
+  background-position: bottom left;
+  background-repeat: repeat-x;
+}
+.bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table tbody tr td.non-writable {
+    background:transparent;
+	font-size: 1.2vw;
+    box-shadow:none;
+    color:white;
+	text-align:center;
+	height: 1.8em;
+	background-color:none;
+}
+
+.bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table thead th, .bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table thead td {
+}
+
+.bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table tbody th, .bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table tbody td {
+	color: black;
+	box-shadow:0 8px 10px -5px #000000
+}
+
+.bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table tbody th.first-cell, .bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table tbody td.first-cell {
+	text-align: center;
+	width: 4em;
+}
+
+.bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table tbody th.doctor, .bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table tbody td.doctor {
+	background-color: rgba(235, 249, 255, 1);
+	width: 15em;
+}
+.bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table tbody th.position, .bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table tbody td.position{
+	width: 12em;
+}
+
+.bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table tbody th.odd-column, .bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table tbody td.time {
+	text-align: center;
+	width: 7em;
+}
+
+.bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table tbody th.last-cell, .bjs-component-app-container .bjs-component-tables-wrapper .bjs-component-table table tbody td.last-cell {
+}
+
+
+.bjs-component-app-container .footer{
+	position: absolute;
+	bottom: 0.1em;
+	font-size: xx-large;
+	word-spacing: 5px;
+}
