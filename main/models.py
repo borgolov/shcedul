@@ -82,3 +82,15 @@ class Screen(models.Model):
     class Meta:
         verbose_name = 'Экран'
         verbose_name_plural = 'Экраны'
+
+
+class Slider(models.Model):
+    name = models.CharField(max_length=30)
+    screens = models.ManyToManyField(Screen, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Слайд экранов'
+        verbose_name_plural = 'Слайды экранов'
