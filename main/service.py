@@ -9,6 +9,10 @@ def get_schedules(screen: Screen) -> Screen:
     return screen.schedule.all()
 
 
+def get_slider(id):
+    return Slider.objects.get(id=id)
+
+
 def get_profiles_in_schedules(screen: Screen):
     schedules = get_schedules(screen)
     profiles = []

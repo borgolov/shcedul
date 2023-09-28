@@ -23,3 +23,8 @@ def get_schedule(request):
     schedule, titl = screen_schedule(request)
     context = schedule
     return JsonResponse({'response': context})
+
+
+def slider(request):
+    slider_id = request.GET.get('slider_id')
+    return(request, 'slider.html')
