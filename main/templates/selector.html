@@ -12,6 +12,9 @@
         {% for item in list %}
         <a href="/?screen_id={{item.id}}">{{item}}</a>
         {% endfor %}
+        {% for item in list_slider %}
+        <a href="/slider?slider_id={{item.id}}">{{item}}</a>
+        {% endfor %}
     </div>
 </body>
 </html>

@@ -23,8 +23,7 @@ def get_profiles_in_schedules(screen: Screen):
     return profiles_clear
 
 
-def screen_schedule(request):
-    screen = get_screen(request.GET.get('screen_id'))
+def create_schema(screen: Screen):
     lista = get_profiles_in_schedules(screen)
     schema = list()
     for item in lista:
@@ -47,7 +46,23 @@ def screen_schedule(request):
                 }
                 item_js['rows'].append(sc)
         schema.append(item_js)
+    return schema
+
+
+def screen_schedule(request):
+    screen = get_screen(request.GET.get('screen_id'))
+    lista = get_profiles_in_schedules(screen)
+    schema = create_schema(screen)
     return schema, screen.title
+
+
+def slider_schedule(request):
+    slider: Slider = get_slider(request.GET.get('slidre_id'))
+    screens = slider.screens.all()
+    schema = list()
+    for item in screens:
+        schema.append(create_schema(item))
+    return schema
 
 
 

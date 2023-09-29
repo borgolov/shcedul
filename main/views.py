@@ -15,11 +15,10 @@ def index(request):
         return render(request, 'index_old.html', {'title': screen.title})
     else:
         return render(request, 'selector.html',
-                      {'title': 'ОГБУЗ "Иркутская городская клиническая больница №3"', 'list': Screen.objects.all()})
+                      {'title': 'ОГБУЗ "Иркутская городская клиническая больница №3"', 'list': Screen.objects.all(), 'list_slider': Slider.objects.all()})
 
 
 def get_schedule(request):
-
     schedule, titl = screen_schedule(request)
     context = schedule
     return JsonResponse({'response': context})
@@ -27,4 +26,9 @@ def get_schedule(request):
 
 def slider(request):
     slider_id = request.GET.get('slider_id')
-    return(request, 'slider.html')
+    return render(request, 'slider.html', {'title': 'ОГБУЗ "Иркутская городская клиническая больница №3"'})
+
+
+def get_slider(request):
+    context = slider_schedule(request)
+    return JsonResponse({'response': context})
