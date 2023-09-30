@@ -86,7 +86,9 @@ class Screen(models.Model):
 
 class Slider(models.Model):
     name = models.CharField(max_length=30)
+    title = models.CharField(max_length=100, blank=True)
     screens = models.ManyToManyField(Screen, blank=True)
+    time_for_slide = models.IntegerField(default=10, blank=True)
 
     def __str__(self):
         return self.name

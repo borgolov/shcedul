@@ -17,12 +17,73 @@
 	<div class="bjs-component-tables-wrapper">
 		<div class="bjs-component-table">
 		<div class="header">Расписание работы специалистов</div>
-            
+            <div id="app">
+				<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+					<div class="carousel-inner">
+						<template v-for="screen in screens">
+							<div :class="active_first(screens.indexOf(screen))" :data-bs-interval="1000 * time_for_slide">
+								<table>
+									<tbody>
+										<tr>
+												<td class="cell first-cell">Каб №</td>
+												<td class="cell doctor">ФИО</td>
+												<td class="cell position">Должность</td>
+												<td class="cell time">Пн.</td>
+												<td class="cell time">Вт.</td>
+												<td class="cell time">Ср.</td>
+												<td class="cell time">Чт.</td>
+												<td class="cell time">Пт.</td>
+												<td class="cell time">Сб.</td>
+												<td class="cell comments">Вид очереди</td>
+										</tr>
+					
+										<template v-for="prof in screen">
+											<tr>
+												<td class="non-writable" colspan="10">{% verbatim %}{{prof.profile_type}}{% endverbatim %}</td>
+											</tr>
+											<tr v-for="item in prof.rows" :key="item.id">
+												<template v-if="!item.is_holiday">
+					
+													<td class="cell first-cell">{% verbatim %}{{item.room}}{% endverbatim %}</td>
+													<td class="cell doctor">{% verbatim %}{{item.doc}}{% endverbatim %}</td>
+													<td class="cell position">{% verbatim %}{{item.profile}}{% endverbatim %}</td>
+													<td class="cell time">{% verbatim %}{{item.monday}}{% endverbatim %}</td>
+													<td class="cell time">{% verbatim %}{{item.tuesday}}{% endverbatim %}</td>
+													<td class="cell time">{% verbatim %}{{item.wednesday}}{% endverbatim %}</td>
+													<td class="cell time">{% verbatim %}{{item.thursday}}{% endverbatim %}</td>
+													<td class="cell time">{% verbatim %}{{item.friday}}{% endverbatim %}</td>
+													<td class="cell time">{% verbatim %}{{item.saturday}}{% endverbatim %}</td>
+													<!--<td class="cell time" colspan="6">Обращаться в регистратуру</td>-->
+													<!--<td class="cell last-cell">по записи</td>-->
+													<td class="cell time">{% verbatim %}{{item.type}}{% endverbatim %}</td>
+					
+												</template>
+												<template v-else>
+													<td class="cell first-cell">{% verbatim %}{{item.room}}{% endverbatim %}</td>
+													<td class="cell doctor">{% verbatim %}{{item.doc}}{% endverbatim %}</td>
+													<td class="cell position">{% verbatim %}{{item.profile}}{% endverbatim %}</td>
+					
+													<td class="cell time" colspan="6">Обращаться в регистратуру</td>
+					
+													<td class="cell time">{% verbatim %}{{item.type}}{% endverbatim %}</td>
+												</template>
+											</tr>
+										</template>
+					
+									</tbody>
+					
+								</table>
+							</div>
+						</template>
+					</div>
+				  </div>
+			</div>
 		</div>
 	</div>
 	<div class="footer">
 		<!--<marquee>Диспансеризация  определенных  групп взрослого населения проводится в 106 кабинете. Режим работы: с 08.00-16.00ч. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Кабинет флюорографии находится на территории больницы, направление можно получить в 100 каб. или регистратуре, обращаться с полисом и паспортом. Режим работы: с 10.00-15.00ч. Тел. Регистратура поликлиники 8 (3952) 260-969
 		</marquee>-->
 	</div>
+	<script src="{% static '/js/slider.js' %}"></script>
 </body>
 </html>

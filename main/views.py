@@ -26,9 +26,16 @@ def get_schedule(request):
 
 def slider(request):
     slider_id = request.GET.get('slider_id')
-    return render(request, 'slider.html', {'title': 'ОГБУЗ "Иркутская городская клиническая больница №3"'})
+    slider: Slider = get_slider_on_id(slider_id)
+    return render(request, 'slider.html', {'title': slider.title})
 
 
 def get_slider(request):
     context = slider_schedule(request)
     return JsonResponse({'response': context})
+
+
+def get_slider_time(request):
+    slider_id = request.GET.get('slider_id')
+    time = get_timer_slide_on_id(slider_id)
+    return JsonResponse({'response': time})

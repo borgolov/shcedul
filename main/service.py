@@ -9,7 +9,7 @@ def get_schedules(screen: Screen) -> Screen:
     return screen.schedule.all()
 
 
-def get_slider(id):
+def get_slider_on_id(id):
     return Slider.objects.get(id=id)
 
 
@@ -57,13 +57,17 @@ def screen_schedule(request):
 
 
 def slider_schedule(request):
-    slider: Slider = get_slider(request.GET.get('slidre_id'))
+    slider: Slider = get_slider_on_id(request.GET.get('slider_id'))
     screens = slider.screens.all()
     schema = list()
     for item in screens:
         schema.append(create_schema(item))
     return schema
 
+
+def get_timer_slide_on_id(slider_id):
+    slider: Slider = get_slider_on_id(slider_id)
+    return slider.time_for_slide
 
 
 
